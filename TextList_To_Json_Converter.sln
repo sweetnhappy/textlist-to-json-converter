@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextList_To_Json_Converter", "TextList_To_Json_Converter\TextList_To_Json_Converter.csproj", "{18302DE4-0A6F-44B1-B6BD-D754A65F8DFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18302DE4-0A6F-44B1-B6BD-D754A65F8DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18302DE4-0A6F-44B1-B6BD-D754A65F8DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18302DE4-0A6F-44B1-B6BD-D754A65F8DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18302DE4-0A6F-44B1-B6BD-D754A65F8DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

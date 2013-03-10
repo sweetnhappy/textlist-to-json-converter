@@ -1,0 +1,110 @@
+﻿@model TextList_To_Json_Converter.Models.ConverterData
+@{
+    ViewBag.Title = "Text List To JSON Converter";
+}
+
+<p></p>
+
+<h2>Text List To JSON Converter</h2>
+
+@using (Html.BeginForm("Process", "TextListToJson", FormMethod.Post))
+{
+    <div class="well well-large">
+        <fieldset>
+            <legend>Setup</legend>
+            
+            <div class="row">
+                <div class="pull-left span2" style="margin-top: 4px; text-align: right;">
+                    <strong>Number of Groups: </strong>
+                </div>
+                <div class="pull-left span2">
+                    <input class="input-small" type="text" name="GroupCount"
+                           value="@(Model.GroupCount)" />
+                </div>
+                <div class="pull-left span2" style="margin-top: 4px; text-align: right;">
+                    <strong>Item Delimiter: </strong>
+                </div>
+                <div class="pull-left span2">
+                    <input class="input-small" type="text" name="GroupItemDelimiter"
+                           value="@(Model.GroupItemDelimiter)" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="pull-left span2" style="margin-top: 4px; text-align: right;">
+                    <strong>Version: </strong>
+                </div>
+                <div class="pull-left span2">
+                    <input class="input-small" type="text" name="Collection.Version"
+                           value="@(Model.Collection.Version)" />
+                </div>
+                <div class="pull-left span4" style="text-align: center;">
+                    <button class="btn btn-primary" style="width: 222px; margin-left: 2px;" type="submit">
+                        Set/Update Setup Information
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+
+        @{
+            if (Model.GroupCount > 0)
+            {
+                <fieldset>
+                    <legend>Groups</legend>
+                    
+                    @for (var i = 0; i < Model.GroupCount; i++)
+                    {
+                        <div class="row">
+                            <div class="pull-left span2" style="margin-top: 4px; text-align: right;">
+                                <strong>Group @(i):</strong>
+                            </div>
+                            <div class="pull-left span4">
+                                <input class="input-xlarge" type="text" name="GroupNames[@(i)]" value="@(Model.GroupNames[i])" />
+                            </div>
+                        </div>
+                    }
+                    
+                    <div class="row">
+                        <div class="pull-left span2"></div>
+                        <div class="pull-left span4">
+                            <button class="btn btn-primary" style="width: 282px;" type="submit">Set/Update Group Names</button>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Group Items</legend>
+                    
+                    @for (var i = 0; i < Model.GroupCount; i++)
+                    {
+                        <div class="row">
+                            <div class="pull-left span2" style="margin-top: 4px; text-align: right;">
+                                <strong>Group @(i)'s Items:</strong>
+                            </div>
+                            <div class="pull-left span9">
+                                <textarea class="span9" rows="15" cols="1" name="GroupItemBlobs[@(i)]">
+                                    @(Model.GroupItemBlobs[i])
+                                </textarea>
+                            </div>
+                        </div>
+                    }
+                    
+                    <div class="row">
+                        <div class="pull-left span2"></div>
+                        <div class="pull-left span4">
+                            <button class="btn btn-primary" style="width: 282px;" type="submit">Set/Update Group Items</button>
+                        </div>
+                    </div>
+                </fieldset>
+            
+                <fieldset>
+                    <legend>JSON Output</legend>
+                    
+                    <div class="span11">
+                        <textarea class="span11" rows="15" cols="1">@(Html.Raw(Model.Output))</textarea>
+                    </div>
+                </fieldset>
+            }
+        }
+    </div>
+}
